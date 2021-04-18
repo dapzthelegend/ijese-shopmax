@@ -15,5 +15,5 @@ information.
 5. Integration and Unit tests using Expresso and JUnit
 
 ## DEMO 
-![Shopmax Demo](https://media-upload.net/file/CeO49IEs_gKY.gif)
+![Shopmax Demo](https://media-upload.net/file/CeO49IEs_gKY)
 
