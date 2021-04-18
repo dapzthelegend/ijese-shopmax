@@ -1,27 +1,25 @@
-package com.example.shopmax
+package com.example.shopmax.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.activityViewModels
+import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.shopmax.R
 import com.example.shopmax.data.ShipmentResponseShipments
 import com.example.shopmax.databinding.FragmentHomeBinding
-import com.example.shopmax.ui.HomeViewModel
-import com.example.shopmax.ui.ShipmentAdapter
-import com.example.shopmax.ui.ShipmentItemDecoration
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_home.*
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
     private lateinit var binding:FragmentHomeBinding
-    private val viewModel:HomeViewModel by activityViewModels()
+    private val viewModel:HomeViewModel by viewModels()
     private lateinit var shipmentAdapter:ShipmentAdapter
 
 
@@ -45,7 +43,7 @@ class HomeFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         initializeFields()
         viewModel.shipments.observe(viewLifecycleOwner, {
-            shipmentAdapter.setList(it.data.shipments)
+            shipmentAdapter.setList(it.data.shipments.asReversed())
         })
 
     }
@@ -58,8 +56,8 @@ class HomeFragment : Fragment() {
         home_shipments_recyclerview.layoutManager = LinearLayoutManager(activity)
         home_shipments_recyclerview.adapter = shipmentAdapter
         home_shipments_recyclerview.setHasFixedSize(true)
-        home_shipments_recyclerview.addItemDecoration(ShipmentItemDecoration(20))
-        home_get_quote_fab.setOnClickListener {
+        home_shipments_recyclerview.addItemDecoration(ShipmentItemDecoration(30))
+        home_make_shipment_fab.setOnClickListener {
             val action = HomeFragmentDirections.actionHomeFragmentToQuoteFragment()
             it.findNavController().navigate(action)
         }
@@ -67,12 +65,16 @@ class HomeFragment : Fragment() {
     }
 
     private fun onItemClicked(model: ShipmentResponseShipments) {
-        val action = HomeFragmentDirections.actionHomeFragmentToTrackingFragment()
-
-        view?.findNavController()?.navigate(action)
+        (activity as ShopMaxActivity).showError("Tracking ${model.packages[0].name}")
 
 
 
+    }
+
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.getShipments()
     }
 
 

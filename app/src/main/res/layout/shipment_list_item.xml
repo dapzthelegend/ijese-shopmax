@@ -17,10 +17,11 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:background="@color/colorWhite"
-            android:layout_height="150dp">
+            android:layout_height="120dp">
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="100dp"
+                android:layout_width="80dp"
+
                 app:layout_constraintStart_toStartOf="parent"
                 android:layout_marginStart="25dp"
                 android:id="@+id/shipment_list_item_status_imageview"
@@ -30,27 +31,27 @@
                 status="@{model.status}"
                 app:shapeAppearanceOverlay="@style/ShapeAppearance.App.CornerRadius"
                 android:src="@drawable/ic_baseline_pending_24"
-                android:layout_height="100dp"
+                android:layout_height="80dp"
                 />
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_marginTop="20dp"
+                android:layout_marginTop="10dp"
                 android:id="@+id/shipment_list_item_name_textview"
                 app:layout_constraintTop_toTopOf="@id/shipment_list_item_status_imageview"
                 app:layout_constraintStart_toEndOf="@id/shipment_list_item_status_imageview"
                 android:fontFamily="@font/roboto_regular"
                 android:textColor="@color/colorTextBlack"
                 android:layout_marginStart="20dp"
-                android:text="@{model.packages.get(0).name}"
-                android:textSize="24sp"
+                android:text="@{model.packages.get(0).packageName}"
+                android:textSize="18sp"
                 android:layout_height="wrap_content"
                 />
 
 
 
             <com.google.android.material.imageview.ShapeableImageView
-                android:layout_width="22dp"
+                android:layout_width="16dp"
                 android:layout_marginStart="20dp"
                 android:layout_marginTop="13dp"
                 app:layout_constraintStart_toEndOf="@id/shipment_list_item_status_imageview"
@@ -59,18 +60,18 @@
 
                 android:background="@color/colorWhite"
                 android:src="@drawable/naira"
-                android:layout_height="22dp"
+                android:layout_height="16dp"
                 />
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_marginTop="10dp"
-                android:id="@+id/home_name_label_textview"
+                android:id="@+id/shipment_list_item_price_textview"
                 app:layout_constraintTop_toBottomOf="@id/shipment_list_item_name_textview"
                 app:layout_constraintStart_toEndOf="@id/shipment_list_item_naira_imageview"
                 android:fontFamily="@font/roboto_bold"
                 android:textColor="@color/colorTextBlack"
-                android:text="@{`${model.charges}`}"
-                android:textSize="20sp"
+                android:text="@{Double.toString(model.charges)}"
+                android:textSize="16sp"
                 android:layout_height="25dp"
                 />
 
@@ -81,8 +82,7 @@
                 android:paddingTop="5dp"
                 android:paddingBottom="5dp"
                 android:id="@+id/shipment_list_item_track_textview"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/shipment_list_item_price_textview"
                 android:layout_marginEnd="20dp"
                 android:textColor="@color/colorWhite"
                 android:background="@drawable/text_selector_background"

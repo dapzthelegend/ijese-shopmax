@@ -1,6 +1,5 @@
 package com.example.shopmax.ui
 
-import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.example.shopmax.data.ShipmentResponseShipments
 import com.example.shopmax.databinding.ShipmentListItemBinding

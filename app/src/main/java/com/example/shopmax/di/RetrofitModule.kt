@@ -5,7 +5,6 @@ import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
-import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.Cache
 import okhttp3.OkHttpClient
@@ -55,11 +54,14 @@ object RetrofitModule {
             val requestBuilder = original.newBuilder()
                 .addHeader("Accept", "application/json")
                 .addHeader("Content-Type", "application/json")
+                .addHeader("Authorization", "Bearer Mzc3.Qcm2dkW1gcr_rrxK9jw0yTYODs8Ub84CkVO0X3tEQ5Uyy0bAIFCZeZt_SDnF")
+
 
             // Adding Authorization token (API Key)
             // Requests will be denied without API key
             val request = requestBuilder.build()
             val result =  chain.proceed(request)
+
             result
         }
 

@@ -1,6 +1,5 @@
 package com.example.shopmax.ui
 
-import android.util.Log
 import androidx.lifecycle.*
 import com.example.shopmax.data.ShipmentResponse
 import com.example.shopmax.data.ShipmentService
@@ -15,19 +14,19 @@ class HomeViewModel @Inject constructor(private val shipmentService: ShipmentSer
     val shipments:LiveData<ShipmentResponse> = _shipments
 
 
-    init {
-        Log.e("TAGG", "viewmodel")
 
+
+    fun getShipments(){
         try {
             viewModelScope.launch {
-              //  _shipments.value = shipmentService.getShipments()
+                _shipments.value = shipmentService.getShipments()
             }
 
         }catch (e:Exception){
             e.printStackTrace()
         }
-
     }
+
 
 
 }

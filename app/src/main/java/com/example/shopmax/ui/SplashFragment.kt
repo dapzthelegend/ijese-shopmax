@@ -1,4 +1,4 @@
-package com.example.shopmax
+package com.example.shopmax.ui
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.navigation.findNavController
+import com.example.shopmax.R
 import com.example.shopmax.databinding.FragmentSplashBinding
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.android.synthetic.main.fragment_splash.*
 
 
 
-
+@AndroidEntryPoint
 class SplashFragment : Fragment() {
 
 
@@ -26,7 +28,8 @@ class SplashFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        binding = DataBindingUtil.inflate(LayoutInflater.from(activity), R.layout.fragment_splash, container, false)
+        binding = DataBindingUtil.inflate(LayoutInflater.from(activity),
+            R.layout.fragment_splash, container, false)
 
         binding.lifecycleOwner = this
 
@@ -35,10 +38,9 @@ class SplashFragment : Fragment() {
     }
 
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
         initializeFields()
-
     }
     private fun initializeFields() {
         splash_get_started_extended_fab.shrink()

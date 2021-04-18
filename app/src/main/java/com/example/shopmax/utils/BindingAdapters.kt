@@ -1,11 +1,14 @@
-package com.example.shopmax
+@file:Suppress("DEPRECATION")
+
+package com.example.shopmax.utils
 
 import androidx.databinding.BindingAdapter
+import com.example.shopmax.R
 import com.google.android.material.imageview.ShapeableImageView
 
 object ImageBindings{
 
-    const val STATUS = "pending"
+    private const val STATUS = "pending"
 
 
 

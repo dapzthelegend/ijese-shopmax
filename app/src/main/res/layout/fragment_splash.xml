@@ -14,7 +14,7 @@
         android:fitsSystemWindows="true"
         android:orientation="vertical"
         android:weightSum="2"
-        tools:context=".SplashFragment">
+        tools:context=".ui.SplashFragment">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

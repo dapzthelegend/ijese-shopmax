@@ -29,5 +29,6 @@ class ShipmentAdapter(private val onItemClicked: (ShipmentResponseShipments) -> 
 
     fun setList(shipments: List<ShipmentResponseShipments>){
         this.shipments = shipments
+        notifyDataSetChanged()
     }
 }

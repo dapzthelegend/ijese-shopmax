@@ -7,41 +7,27 @@
 
     <fragment
         android:id="@+id/splashFragment"
-        android:name="com.example.shopmax.SplashFragment"
+        android:name="com.example.shopmax.ui.SplashFragment"
         android:label="fragment_splash"
         tools:layout="@layout/fragment_splash" >
         <action
             android:id="@+id/action_splashFragment_to_homeFragment"
             app:destination="@id/homeFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            app:enterAnim="@anim/left_right" />
     </fragment>
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.example.shopmax.HomeFragment"
+        android:name="com.example.shopmax.ui.HomeFragment"
         android:label="fragment_home"
         tools:layout="@layout/fragment_home" >
         <action
-            android:id="@+id/action_homeFragment_to_trackingFragment"
-            app:destination="@id/trackingFragment" />
-        <action
             android:id="@+id/action_homeFragment_to_quoteFragment"
-            app:destination="@id/quoteFragment"
-            app:enterAnim="@android:anim/slide_in_left"
-            app:exitAnim="@android:anim/slide_out_right"
-            app:popEnterAnim="@android:anim/slide_in_left"
-            app:popExitAnim="@android:anim/slide_out_right" />
+            app:destination="@id/shipmentFragment"
+            app:enterAnim="@anim/left_right" />
     </fragment>
     <fragment
-        android:id="@+id/trackingFragment"
-        android:name="com.example.shopmax.TrackingFragment"
-        android:label="fragment_tracking"
-        tools:layout="@layout/fragment_tracking" />
-    <fragment
-        android:id="@+id/quoteFragment"
-        android:name="com.example.shopmax.QuoteFragment"
-        android:label="fragment_quote"
-        tools:layout="@layout/fragment_quote" />
+        android:id="@+id/shipmentFragment"
+        android:name="com.example.shopmax.ui.ShipmentFragment"
+        android:label="fragment_shipment"
+        tools:layout="@layout/fragment_shipment" />
 </navigation>
