@@ -15,7 +15,6 @@ information.
 5. Integration and Unit tests using Expresso and JUnit
 
 ## DEMO 
-![Shopmax Demo](https://github.com/dapzthelegend/ijese-shopmax/blob/main/ijese.gif)
 
 
-<img src="https://github.com/dapzthelegend/ijese-shopmax/blob/main/ijese.gif" width="400" height="790">
+<img src="https://github.com/dapzthelegend/ijese-shopmax/blob/main/ijese.gif" alt= "Shopmax Demo" width="400" height="790">
